@@ -27,21 +27,19 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$autoloader = Zend_Loader_Autoloader::getInstance();
 		$autoloader->registerNamespace('Zend');
 		$autoloader->registerNamespace('Twig');
-		$autoloader->registerNamespace('tools');
 	}
 	
 	public function _initSession()
 	{
 		Zend_Session::start();
 		
-		$session = new Zend_Session_Namespace(
-				PREFIX . 'fronted',
-				Zend_Session_Namespace::SINGLE_INSTANCE
-		);
+		$session = new Zend_Session_Namespace(PREFIX . 'fronted');
 		
 		Zend_Registry::set('session', $session);
 		
-		Zend_Auth::getInstance()->setStorage(new Zend_Auth_Storage_Session(PREFIX.'fronted_auth'));
+		Zend_Auth::getInstance()->setStorage(
+			new Zend_Auth_Storage_Session(PREFIX.'fronted_auth')
+		);
 	}
 	
 	protected function _initCache()
@@ -94,24 +92,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 						'path' => 'controllers',
 						'namespace' => 'Controller'
 					),
-					'model' => array(
-						'path' => 'models',
-						'namespace' => 'Model'
+					'form' => array(
+						'path' => 'forms',
+						'namespace' => 'Form'
 					),
 					'model' => array(
 						'path' => 'models',
 						'namespace' => 'Model'
 					),
 					'model' => array(
-						'path' => 'models',
-						'namespace' => 'Model'
+						'plugin' => 'plugins',
+						'namespace' => 'Plugin'
 					)
 				)
 			)
 		);
-		$resourceLoader->addResourceType('form', 'forms/', 'Form');
-		$resourceLoader->addResourceType('model', 'models/', 'Model');
-		$resourceLoader->addResourceType('plugin', 'plugins/', 'Plugin');
 	}
 	
 	protected function _initRouter()
@@ -124,7 +119,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		}
 		
 		$router = Zend_Controller_Front::getInstance()->getRouter();
-		$router->removeDefaultRoutes();
 		$router->addConfig($config);
 	}
 
