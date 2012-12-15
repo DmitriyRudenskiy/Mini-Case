@@ -1,0 +1,63 @@
+{% include '_header.twig' %}
+	
+	<table class="table">
+		<tr>
+			<th>#</th>
+			<th>Статус</th>
+			<th>Родительская категория</th>
+			<th>Псевдоним</th>
+			<th>Название категории</th>
+			<th width="110">Действия</th>
+		</tr>
+		<tr class="well">
+			<form action="" method="get">
+			<td>&nbsp;</td>
+			<td>{{ form.status }}</td>
+			<td>{{ form.category }}</td>
+			<td>{{ form.link }}</td>
+			<td>{{ form.title }}</td>
+			<td><button type="submit" class="btn">Выбрать</button></td>
+			</form>
+		</tr>
+		{% for item in group %}
+		<tr>
+			<td>{{ item.id }}</td>
+			<td>
+			{% if item.is_visible == 1 %}
+				<a href="" class="show_click">
+					<img src="{{ base_url }}images/button/active.png" alt="" />
+				</a>
+			{% else %}
+				<a href="" class="hide_click">
+					<img src="{{ base_url }}images/button/inactive.png" alt="" />
+				</a>
+			{% endif %}
+			</td>
+			<td>
+			{% if item.parent_category %}
+			<a href="{{ base_url }}../{{ item.parent_category }}">{{ item.parent_category_link }}
+			{% else %}
+			<p>Основная</p>
+			{% endif %}
+			
+			</td>
+			<td><a href="{{ base_url }}../{{ item.link }}">{{ item.link }}</td>
+			<td>{{ item.name }}</td>
+				<td>
+					<a href="{{ base_url }}menuitem/category/{{item.id}}" title="Добавить пункт меню">
+						<img src="{{ baase_url }}images/button/add_menu.png" alt="Добавить пункт меню" />
+					</a>
+					<a href="{{ base_url }}{{controller}}/edit/{{item.id}}" title="Правка страницы">
+						<img src="{{ baase_url }}images/button/edit.png" width="32" height="32" alt="Добавить пункт меню" />
+					</a>
+					<a href="{{ base_url }}{{controller}}/delete/{{item.id}}" title="Удалить страницу" onClick="return confirm('Удалить страницу {{ item.title }}?')">
+						<img src="{{ baase_url }}images/button/delete.png" alt="Удалить страницу" />
+					</a>
+				</td>
+			</tr>
+			{% else %}
+				<p>{{ language.empty }}</p>
+			{% endfor %}
+		</table>
+
+{% include '_footer.twig' %}

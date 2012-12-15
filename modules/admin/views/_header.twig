@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ title }}</title>
+		<link href="{{ base_url }}css/bootstrap.css" rel="stylesheet">
+		<link href="{{ base_url }}css/style.css" rel="stylesheet">
+		<script src="{{ base_url }}js/jquery-1.7.2.min.js"></script>
+	</head>
+<body>
+
+<div class="wrapper">
+
+<div class="container">
+	<div class="row" style="margin: 20px 0px;">
+	<a href="{{ base_url }}" id="logo"><img src="{{ base_url }}images/logo.png" alt="Quality Сase" /></a>
+	</div>
+</div>
+
+		
+<div class="container-fluid" style="height: 115px; background: url(/admin/img/css/header_bg.jpg) repeat-x;">
+	<div class="container">
+		<div class="row">
+			<div class="span8">
+			{{ menu }}
+			<h2>{{ title }}</h2>
+				<ul class="breadcrumb">
+			    <li>
+			    <a href="#">Home</a> <span class="divider">/</span>
+			    </li>
+			    <li>
+			    <a href="#">Library</a> <span class="divider">/</span>
+			    </li>
+			    <li class="active">
+			    <a href="#">Data</a>
+			    </li>
+			    </ul>
+		</div>
+		<div class="span2">
+			{% if (action == 'index') and (controller != 'index') %}
+			<a href="{{ base_url }}{{controller}}/add" class="btn" style="margin-top: 25px;">
+				<img src="{{ base_url }}images/button/add.png" alt="" />Добавить
+			</a>
+			{% else %}
+			<a href="{{ base_url }}{{controller}}/add" class="btn" style="margin-top: 25px;">
+				<img src="{{ base_url }}images/button/add.png" alt="" />Назад
+			</a>
+			{% endif %}
+		</div>
+		</div>
+	</div>
+</div>
+
+<div style="height: 10px;"><!--//--></div>
+
+<div class="container">
+
+{% if success %}
+<div class="alert alert-success offset1 span8">
+	{{ success }}
+</div>
+<div style="clear:both;"></div>
+{% endif %}

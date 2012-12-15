@@ -1,0 +1,75 @@
+{% include '_header.twig' %}
+
+	<div class="row">
+	{% if group.0 %}
+	<table class="table">
+		<tr>
+			<th>#</th>
+			<th>Статус</th>
+			<th>Категория</th>
+			<th>Псевдоним</th>
+			<th>Название страницы</th>
+			<th width="110">Действия</th>
+		</tr>
+		<tr class="well">
+			<form action="" method="get">
+			<td>&nbsp;</td>
+			<td>{{ form.status }}</td>
+			<td>{{ form.category }}</td>
+			<td>{{ form.link }}</td>
+			<td>{{ form.title }}</td>
+			<td><button type="submit" class="btn">Выбрать</button></td>
+			</form>
+		</tr>
+		{% for item in group %}
+		<tr>
+			<td>{{ item.id }}</td>
+			<td>
+				{% if item.is_visible == 1 %}
+					<a href="" class="show_click">
+						<img src="{{ base_url }}images/button/active.png" alt="" />
+					</a>
+				{% else %}
+					<a href="" class="hide_click">
+						<img src="{{ base_url }}images/button/inactive.png" alt="" />
+					</a>
+				{% endif %}
+			</td>
+			<td>{{ item.login }}</td>
+			<td>{{ item.first_name }} {{ item.last_name }}</td>
+			<td>{{ item.email }}</td>
+			<td>
+				<a href="{{ base_url }}{{controller}}/edit/{{item.id}}" title="Правка страницы">
+					<img src="{{ base_url }}images/button/edit.png" width="32" height="32" alt="Добавить пункт меню" />
+				</a>
+				<a href="{{ base_url }}{{controller}}/delete/{{item.id}}" title="Удалить страницу" onClick="return confirm('Удалить страницу {{ item.title }}?')">
+					<img src="{{ base_url }}images/button/delete.png" alt="Удалить страницу" />
+				</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+	
+	{% include '_navi.twig' %}
+	{% else %}
+	<p>В данном разделе отсутствует информация</p>
+	{% endif %}
+	</div>
+</div>
+
+<script>
+$("a.hide_click").click(function() {
+	$(this).children('img').attr("src", "{{ base_url }}images/button/active.png");
+	$(this).removeClass("hide_click").addClass("show_click");
+	return false;
+}); 
+
+$("a.show_click").click(function() {
+	$(this).children('img').attr("src", "{{ base_url }}images/button/inactive.png");
+	$(this).removeClass("show_click").addClass("hide_click");
+
+	return false;
+});
+</script>
+
+{% include '_footer.twig' %}

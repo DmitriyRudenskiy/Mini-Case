@@ -1,0 +1,21 @@
+{% if navi.pageCount > 1 %}
+<div class="pagination">
+  <ul>
+  	{% if navi.previous %}
+		<li><a href="{{base_url}}{{ link }}/{{navi.previous}}">«</a></li>
+	{% endif %}
+
+	{% for item in navi.pagesInRange %}
+		{% if item != navi.current %}
+			<li><a href="{{base_url}}{{ link }}/{{item}}">{{item}}</a></li>
+		{% else %}
+			<li class="active"><a href="">{{item}}</a></li>
+		{% endif %}
+	{% endfor %}
+
+	{% if navi.next %}
+		<li><a href="{{base_url}}{{ link }}/{{navi.next}}">»</a></li>
+	{% endif %}
+  </ul>
+</div>
+{% endif %}

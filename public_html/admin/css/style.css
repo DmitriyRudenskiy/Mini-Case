@@ -1,0 +1,20 @@
+html, body{height: 100%;}
+.wrapper{min-height: 100%; height: auto !important; height: 100%; margin: 0 auto;}
+.push{height: 70px;}
+.footer{margin-top: -70px;height:40px;}
+
+.breadcrumb{background: none;}
+.breadcrumb a{color :#fff; text-shadow: #ccc 0px 1px 0px;}
+
+div.alert-error{display: block; clear: both;}
+
+.table td {border-top: 1px dotted #ccc; }
+
+/*** dashboard */
+div.dashboard{ width: 180px; height: 180px; border: 1px solid #ccc; border-radius: 5px; box-shadow:0 1px 4px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.1) inset; margin-top: 20px; margin-right: 50px; margin-bottom: 20px; padding-top: 20px; text-align: center; float: left;}
+div.dashboard a{ display: block; width: 100%; padding-top: 140px;}
+div.dashboard a.category_item{ background: url("../images/dashboard/category.png") center top no-repeat; }
+div.dashboard a.page_item{ background: url("../images/dashboard/page.png") center top no-repeat;}
+div.dashboard a.image_item{ background: url("../images/dashboard/image.png") center top no-repeat;}
+div.dashboard a.menu_item{ background: url("../images/dashboard/menu.png") center top no-repeat;}
+div.dashboard a.help_item{ background: url("../images/dashboard/help.png") center top no-repeat;}

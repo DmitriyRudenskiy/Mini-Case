@@ -1,0 +1,48 @@
+{% include '_header.twig' %}
+
+	<div class="row">
+		<div class="span2 offset10">
+			<a href="{{ base_url }}{{controller}}/add" class="item">
+				<img src="{{ base_url }}images/button/add.png" alt="" />
+			</a>
+		</div>
+	</div>
+	
+	<table class="table">
+		<tr>
+			<th>Название меню</th>
+			<th>Описание</th>
+			<th>Действия</th>
+		</tr>
+		<tr>
+			<td>
+				<a href="http://zend.test/admin/menuitem/index/0">
+			</td>
+			<td>Без меню</td>
+			<td class="action">
+				<a href="http://zend.test/admin/menuitem/index/0" class="edit_admin" title="Правка страницы" />
+			</td>
+		</tr>
+		{% for item in group %}
+				<tr>
+					<td>
+						<a href="{{ base_url }}{{controller}}/edit/{{item.id}}">{{ item.title }}</a>
+					</td>
+					<td>{{ item.description }}</td>
+				<td>
+					<a href="{{ base_url }}menuitem/add/{{item.id}}" title="Добавить пункт меню">
+						<img src="{{ baase_url }}images/button/add_menu.png" alt="Добавить пункт меню" />
+					</a>
+					<a href="{{ base_url }}{{controller}}/edit/{{item.id}}" title="Правка страницы">
+						<img src="{{ baase_url }}images/button/add_menu.png" alt="Добавить пункт меню" />
+					</a>
+					<a href="{{ base_url }}{{controller}}/delete/{{item.id}}" title="Удалить страницу" onClick="return confirm('Удалить страницу {{ item.title }}?')">
+						<img src="{{ baase_url }}images/button/delete.png" alt="Удалить страницу" />
+					</a>
+				</td>
+				</form>
+				</tr>
+	{% endfor %}
+</table>
+
+{% include '_footer.twig' %}

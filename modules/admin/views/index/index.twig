@@ -1,0 +1,52 @@
+{% include '_header.twig' %}
+
+<div class="container">
+	<div class="row">
+	<div class="dashboard">
+		<a href="{{ base_url }}category" class="category_item">Менеджер<br />рубрик</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}page" class="page_item">Менеджер<br />страниц</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}image" class="image_item">Менеджер<br />изображений</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}menu" class="menu_item">Менеджер<br />меню</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}tag" style="padding-top: 0px;">
+			<img src="{{ base_url }}images/dashboard/tag.png" width="128" height="128"><br>
+		Метки</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}log" style="padding-top: 0px;">
+			<img src="{{ base_url }}images/dashboard/log.png" width="128" height="128"><br>Статистика
+		</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}user" style="padding-top: 0px;">
+			<img src="{{ base_url }}images/dashboard/user.png" width="128" height="128"><br>Менеджер<br>пользователей
+		</a>
+	</div>
+	
+	<div class="dashboard">
+		<a href="{{ base_url }}index/help" class="help_item">Справка</a>
+	</div>
+
+	</div>
+</div>
+
+{{ form }}
+
+
+{% include '_footer.twig' %}
+		
+
+

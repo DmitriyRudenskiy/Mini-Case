@@ -1,0 +1,77 @@
+{% include '_header.twig' %}
+
+	<form action="" method="post">
+	{{form.id}}
+	
+	<div id="edit">
+		<a href="" class="back">{{ language.back }}</a>
+		<button type="submit">{{ language.saveAdnClose }}</button>
+		<div class="clear"></div>
+	</div>
+	
+	<ul class="tabs">
+		<li class="current">1</li>
+		<li>2</li>
+	</ul>
+
+	<div class="box visible">
+	<form enctype="multipart/form-data" method="post" class="iform" action="">
+	{{form.id}}
+		<div class="line_form">
+			<p class="label">{{language.categoryId }}</p>
+			{{form.category_id}}
+		</div>
+		
+		<div class="line_form">
+			<p class="label">{{language.name}}</p>
+			{{form.name}}
+		</div>
+		
+		<div class="line_form">
+			<p class="label">{{language.title}}</p>
+			{{form.title}}
+		</div>
+		
+		<div class="line_form">
+			<p class="label">{{language.description}}</p>
+			{{form.alt}}
+		</div>
+	</form>
+	</div>
+	
+	<div class="box">
+		<div style="margin: 10px; float: left">
+			<h2>{{ language.miniImage }}</h2>
+			
+			<hr />
+			
+			<form enctype="multipart/form-data" class="iform" action="{{ base_url }}images/replace/{{image}}" method="post">
+				<input type="hidden" name="type" value="m">
+				<input type="file" name="file" class="ifile" onchange="form.submit()">
+			</form>
+			
+			<hr />
+			
+			<img src="{{base_url}}../images/gallery/{{image}}_m.jpg" /><br />
+			
+			<a href="{{base_url}}image/crop/{{image}}" class="crop">Кадрировать изображение</a>
+		</div>
+		
+		<div style="margin: 10px; float: right;">
+			<h2>{{ language.fullImage }}</h2>
+			<hr />
+			
+			<form enctype="multipart/form-data" class="iform" action="{{ base_url }}images/replace/{{image}}" method="post">
+				<input type="hidden" name="type" value="b">
+				<input type="file" name="file" class="ifile" onchange="form.submit()">
+			</form>
+			
+			<hr />
+			
+			<img src="{{base_url}}../images/gallery/{{image}}_b.jpg" onload="this.width = 400" />
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+{% include '_footer.twig' %}

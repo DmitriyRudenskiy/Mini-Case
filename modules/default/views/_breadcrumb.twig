@@ -1,0 +1,20 @@
+<ul id="breadcrumb">
+	{% for item in breadcrumb %}
+		<li><a href="{{ base_url }}{{ item.link }}">{{ item.label }}</a></li>
+		{% if loop.last %}
+		{% else %}
+			<li> > </li>
+		{% endif %}
+	{% endfor %}
+</ul>
+				<ul class="breadcrumb">
+			    <li>
+			    <a href="#">Home</a> <span class="divider">/</span>
+			    </li>
+			    <li>
+			    <a href="#">Library</a> <span class="divider">/</span>
+			    </li>
+			    <li class="active">
+			    <a href="#">Data</a>
+			    </li>
+			    </ul>

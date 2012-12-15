@@ -1,0 +1,32 @@
+{% include 'header.twig' %}
+
+<ul>
+	<form enctype="multipart/form-data" method="post" class="iform" action="">
+	{{form.id}}
+	<li>
+		<label>{{ language.formParent }}</label>
+		{{form.parent_id}}
+		<p class="description"> {{ language.formParentDescription }}</p>
+	</li>
+	<li>
+		<label>{{ language.formPlace }}</label>
+		{{form.place}}
+		<p class="description">{{ language.formPlaceDescription }}</p>
+	</li>
+	<li>
+		<label>{{ language.formUrl }}</label>
+		{{form.url}}
+		<p class="description">{{ language.formUrlDescription }}</p>
+	</li>
+	<li>
+		<label>{{ language.formTitle }}</label>
+		{{form.title}}
+		<p class="description">{{ language.formTitleDescription }}</p>
+	</li>
+	<li>
+		<input type="submit" name="submit" value="{{ language.formButtonAdd  }}" class="ibutton"/>
+	</li>
+	</form>
+</ul>
+
+{% include 'footer.twig' %}

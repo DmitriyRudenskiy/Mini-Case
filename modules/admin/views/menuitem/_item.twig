@@ -1,0 +1,44 @@
+{% set items = list_items %}
+{% for item in items %}
+	<tr>
+		<td>
+			<span class="menu_item_{{ deep }}">{{ item.label }}</span>
+		</td>
+		
+		<td>
+			{{ item.link }}
+		</td>
+		
+		<td>
+			{% if  loop.first %}
+			{% else %}
+			<a href="{{ base_url }}{{controller}}/hide/{{item.id}}" title="" class="up"></a>
+			{% endif %}
+			
+			{% if loop.last %}
+			{% else %}
+			<a href="{{ base_url }}{{controller}}/hide/{{item.id}}" title="" class="down"></a>
+			{% endif %}
+		</td>
+		
+		<td>
+		{% if item.is_visible != 0 %}
+			<a href="{{ base_url }}{{controller}}/hide/{{item.id}}" title="" class="show"></a>
+		{% else %}
+			<a href="{{ base_url }}{{controller}}/show/{{item.id}}" title="" class="hide"></a>
+		{% endif %}
+		</td>
+		
+		<td class="action">
+			<a href="{{ base_url }}{{controller}}/edit/{{item.id}}" class="edit_admin" title="Правка страницы"></a>
+			<a href="{{ base_url }}{{controller}}/delete/{{item.id}}" class="remove_admin" title="Удалить страницу" onClick="return confirm('Delete')"></a>
+		</td>
+	</tr>
+	
+	{% if item.submenu != 0%}
+		{% set list_items = item.submenu %}
+		{% set deep = deep + 1 %}
+		{% include 'menuitem/_item.twig' with list_items %}
+		{% set deep = deep - 1 %}
+	{% endif %} 
+{% endfor %}

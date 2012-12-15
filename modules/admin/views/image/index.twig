@@ -1,0 +1,35 @@
+{% include '_header.twig' %}
+
+	
+	<div style="margin-bottom: 30px;">
+		<form enctype="multipart/form-data" class="iform" action="{{ base_url }}image/add" method="post">
+			<label>{{ language.addImage }}</label>
+			<input type="file" name="file" id="file" class="itext" onChange="form.submit()">
+		</form>
+	</div>
+	<div class="clear"></div>
+
+{% if group.0 %}
+	{% for item in group %}
+	<div class="item_gallery">
+		<div class="box_image">
+			<img src="{{ base_url }}../images//gallery/{{ item.id}}_m.jpg" onload="this.width=210" />
+		</div>
+		<div class="number">
+		№ {{item.id}}
+		</div>
+		<div class="action_image">
+
+			<a href="{{ base_url }}{{controller}}/edit/{{item.id}}" class="edit_admin" ></a>
+			<a href="{{ base_url }}{{controller}}/delete/{{item.id}}" class="remove_admin" onClick="return confirm('Delete')"></a>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	{% endfor %}
+	<div class="clear"></div>
+{% else %}
+	<p>{{ language.empty }}</p>
+{% endif %}
+
+{% include '_footer.twig' %}

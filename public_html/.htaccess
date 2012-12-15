@@ -1,0 +1,24 @@
+AddDefaultCharset utf-8
+
+#xdebug
+#php_flag xdebug.profiler_enable 1
+#php_value xdebug.profiler_output_dir /home/user/log
+#php_value xdebug.profiler_output_name cachegrind.out.%t%s
+
+Options -Indexes
+php_value upload_max_filesize 10M
+php_flag magic_quotes_gpc off
+php_flag register_globals off
+
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^rudenskij.ru
+RewriteRule (.*) http://www.rudenskij.ru/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^admin/.*$ admin/index.php [L]
+RewriteRule !\.(js|ico|gif|jpg|png|css)$ index.php [L]

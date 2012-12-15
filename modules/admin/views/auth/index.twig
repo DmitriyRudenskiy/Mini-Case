@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title> &rsaquo; Войти</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name='robots' content='noindex,nofollow' />
+	<style type="text/css">
+	* {margin: 0; padding: 0;}
+	#login{ width: 250px; height: 250px; background: #eee url("/admin/images/login.png") center left no-repeat; border: 1px solid #eee; padding: 50px 10px 10px 250px; position: absolute; top: 50%; left: 50%; margin: -250px 0 0 -250px; 	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;}
+	#login label{font-size:12px;}
+	#login input.itext{width:200px; border: 1px solid #777; margin-bottom: 10px; padding: 5px; 	-webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; box-shadow: #ccc 0px 0px 8px;}
+	
+	input {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+  }
+  
+  label, input {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+
+}
+
+.btn {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}
+	</style>
+</head>
+<body>
+	<div id="login">
+		{% if message != ''%}
+			{{message}}
+		{% endif %}
+		
+		<form action="" method="post" >
+			<div>
+				<label class="required">Логин:</label>
+				{{form.username}}
+			</div>
+			
+			<div>
+				<label class="required">Пароль:</label>
+				{{form.password}}
+			</div>
+			
+			<div>
+				<input type="submit" name="submit" value="Войти" class="btn" />
+			</div>
+		</form>
+	</div>
+</body>
+</html>

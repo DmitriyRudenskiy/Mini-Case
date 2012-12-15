@@ -1,0 +1,40 @@
+<div id="menu_top">
+	<ul>
+		<li class="menu_top_title_item">
+			<span class="site">
+				Сайт
+			</span>
+			<ul class="menu_top_item">
+				<li><a href="{{ base_url }}category" class="item">Категории</a></li>
+				<li><a href="{{ base_url }}page" class="item">Страница</a></li>
+				<li class="last"><a href="{{ base_url }}image" class="item">Картинки</a></li>
+			</ul>
+		</li>
+		<li class="menu_top_title_item">
+		<span class="system">
+			Система
+		</span>
+			<ul class="menu_top_item">
+				{% if role == 'su' %}
+					<li><a href="{{ base_url }}user" class="item">Пользователи</a></li>
+				{% endif %}
+				
+				<li class="last"><a href="{{ base_url }}menu" class="item">Меню</a></li>
+			</ul>
+		</li>
+		<li class="menu_top_title_item">
+			<span class="help">
+				Помощь
+			</span>
+			<ul class="menu_top_item">
+				<li class="last"><a href="{{ base_url }}index" class="item">Инструкция</a></li>
+			</ul>
+		</li>
+		<li class="menu_top_title_item">
+			<span class="exit">
+				<a href="{{ base_url }}auth/logout/0">Выход</a>
+			</span>
+		</li>
+			
+	</ul>
+</div>

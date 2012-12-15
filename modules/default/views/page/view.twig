@@ -1,0 +1,15 @@
+{% include '_header.twig' %}
+	<div id="page_view">
+		<h1>{{item.title }}</h1>
+		{% if tags %}
+			<div class="tag">
+				{% for item in tags %}
+					<a href="{{ base_url }}/tag/{{ item.alias }}">{{ item.title }}</a>
+				{% endfor %}
+			</div>
+		{% endif %}
+		
+		{{ item.content }}
+	</div>
+
+{% include '_footer.twig' %}

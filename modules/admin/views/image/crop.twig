@@ -1,0 +1,58 @@
+{% include '_header.twig' %}
+
+<div id="edit">
+	<a href="{{base_url}}image" class="back">{{language.back }}</a>
+
+	<form action="" method="post">
+	  <input type="hidden" name="x1" value="" />
+	  <input type="hidden" name="y1" value="" />
+	  <input type="hidden" name="x2" value="" />
+	  <input type="hidden" name="y2" value="" />
+	  <button type="submit">{{ language.saveAdnClose }}</button>
+	</form>
+	
+	<div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+function preview(img, selection) {
+    var scale = {{ width }} / (selection.width || 1);
+    
+    $('#ferret + div > img').css({       
+        width: Math.round(scale * $('#ferret').width()) + 'px',
+        height: Math.round(scale * $('#ferret').height()) + 'px',
+        marginLeft: '-' + Math.round(scale * selection.x1) + 'px',
+        marginTop: '-' + Math.round(scale * selection.y1) + 'px'
+    });
+}
+
+$(function () {
+    $('<div><img src="{{base_url}}../public/original/{{image}}/image.jpg" style="position: relative;" /></div>')
+        .css({
+        	float: 'right',
+            position: 'relative',
+            overflow: 'hidden',
+            width: '{{ width }}px',
+            height: '{{ height }}px'
+        })
+        .insertAfter($('#ferret'));
+
+    $('#ferret').imgAreaSelect({
+    	aspectRatio: '{{ width }}:{{ height }}',
+    	x1: 0, y1: 0, x2: {{ width }}, y2: {{ height }},
+    	onSelectChange: preview });
+
+    $('#ferret').imgAreaSelect({ 
+        onSelectEnd: function (img, selection) {
+            $('input[name="x1"]').val(selection.x1);
+            $('input[name="y1"]').val(selection.y1);
+            $('input[name="x2"]').val(selection.x2);
+            $('input[name="y2"]').val(selection.y2);
+        }
+    });
+});
+</script>
+
+<img id="ferret" src="{{base_url}}../public/original/{{image}}/image.jpg" alt="" style="float: left; margin-right: 10px;" onload="this.width={{formatWidth}}" width="{{formatWidth}}" />
+
+{% include '_footer.twig' %}

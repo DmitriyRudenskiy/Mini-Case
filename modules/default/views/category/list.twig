@@ -1,0 +1,42 @@
+{% include '_header.twig' %}
+
+{% if item.type == 1 %}
+	<div id="content">
+		{% for item in list %}
+		<div class="row">
+      <div class="span3">
+      <br>
+        <a href="#" class="thumbnail">
+            <img src="http://placehold.it/260x180" alt="">
+        </a>
+      </div>
+      
+      <div class="span9">
+	    <h1><a href="{{ base_url }}/{{ item.link }}.html">{{ item.header }}</a></h1>
+	    <p>{{ item.anons }}</p>
+	    <div>
+	        <span class="badge badge-success">Posted 2012-08-02 20:47:04</span><div class="pull-right"><span class="label">alice</span> <span class="label">story</span> <span class="label">blog</span> <span class="label">personal</span></div>
+	    </div> 
+    </div>
+</div>
+<hr>
+		{% else %}
+			<p>В данном разделе отсутствует информация</p>
+		{% endfor %}
+		{% include '_navi.twig' %}
+		</div>
+{% endif %}
+
+{% if item.type == 2 %}
+		{% for item in list %}
+		<a href="{{ base_url }}/public/gallery/{{ item.id}}_b.jpg" title="" class="fancybox_img">
+			<img src="{{ base_url }}/public/gallery/{{ item.id}}_m.jpg" alt="{{ item.name }}" /> </a> 
+		{% else %}
+			<p>В данном разделе фотографий нет</p>
+		{% endfor %}
+{% endif %}
+
+
+{% include '_footer.twig' %}
+
+

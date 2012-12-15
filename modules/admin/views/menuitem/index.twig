@@ -1,0 +1,19 @@
+{% include '_header.twig' %}
+
+{% if group != 0%}
+<table id="list">
+			<tr>
+				<th>Название страницы</th>
+				<th>Ярлык</th>
+				<th>Позиция</th>
+				<th>{{ language.tableVisibility }}</th>
+				<th>Действия</th>
+			</tr>
+			
+			{% set list_items =  group %}
+			{% set deep = 0 %}
+			{% include 'menuitem/_item.twig' with list_items %}
+	</table>
+{% endif %}
+
+{% include '_footer.twig' %}

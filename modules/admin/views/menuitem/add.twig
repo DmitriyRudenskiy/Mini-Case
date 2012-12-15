@@ -1,0 +1,41 @@
+{% include '_header.twig' %}
+
+	<form class="form-inline" method="post" action="">
+	{{form.id}}
+	
+	<div class="row">
+		<div class="span2">
+			<button type="submit" class="btn">Сохранить</button>
+		</div>
+	</div>
+	
+	<div class="row">
+		<table class="table">
+			<tr>
+				<td class="span4">Показывать</td>
+				<td>{{form.is_visible}}</td>
+			</tr>
+			<tr>
+				<td>{{ language.title }}</td>
+				<td>{{form.menu_id}}</td>
+			</tr>
+			<tr>
+				<td>Заголовок</td>
+				<td>{{form.position}}</td>
+			</tr>
+			<tr>
+				<td>Заголовок</td>
+				<td>{{form.parent_id}}</td>
+			</tr>
+			<tr>
+				<td>Заголовок</td>
+				<td>{{form.label}}</td>
+			</tr>
+			<tr>
+				<td>Заголовок</td>
+				<td>{{form.link}}</td>
+			</tr>
+		</table>
+	</div>
+
+{% include '_footer.twig' %}
