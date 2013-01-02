@@ -64,7 +64,7 @@ abstract class Controller_Base extends Zend_Controller_Action
 		$this->view->controller = $controller;
 		$this->view->action = $action;
 		
-		$this->_getBreadcrumb($controller, $action);
+		//$this->_getBreadcrumb($controller, $action);
 	}
 	
 	
@@ -233,6 +233,7 @@ abstract class Controller_Base extends Zend_Controller_Action
 	 * @param unknown $controller
 	 * @param unknown $action
 	 */
+	/*
 	protected function _getBreadcrumb($controller, $action)
 	{
 		$pages['index']['index'] = array(
@@ -320,6 +321,7 @@ abstract class Controller_Base extends Zend_Controller_Action
 		
 		$this->view->title = $pages[$controller][$action]['title'];
 	}
+	*/
 }
 
 /* End of file admin/controllers/BackedController.php */

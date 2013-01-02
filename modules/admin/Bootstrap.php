@@ -82,36 +82,29 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	protected function _initResources()
 	{
 		$resourceLoader = new Zend_Loader_Autoloader_Resource(
-			array(
-				'basePath'  => dirname(__FILE__),
-				'namespace' => '',
-				'resourceTypes' => array(
-					'acl' => array(
-						'path' => 'acls',
-						'namespace' => 'Acl'
-					),
-					'controller' => array(
-						'path' => 'controllers',
-						'namespace' => 'Controller'
-					),
-					'model' => array(
-						'path' => 'models',
-						'namespace' => 'Model'
-					),
-					'model' => array(
-						'path' => 'models',
-						'namespace' => 'Model'
-					),
-					'model' => array(
-						'path' => 'models',
-						'namespace' => 'Model'
-					)
+				array(
+						'basePath'  => BASE_PATH,
+						'namespace' => '',
+						'resourceTypes' => array(
+								'acl' => array(
+										'path' => 'acls/',
+										'namespace' => 'Acl'
+								),
+								'controller' => array(
+										'path' => 'controllers/',
+										'namespace' => 'Controller'
+								),
+								'form' => array(
+										'path' => 'forms/',
+										'namespace' => 'Form'
+								),
+								'model' => array(
+										'path' => 'models/',
+										'namespace' => 'Model',
+								)
+						)
 				)
-			)
 		);
-		$resourceLoader->addResourceType('form', 'forms/', 'Form');
-		$resourceLoader->addResourceType('model', 'models/', 'Model');
-		$resourceLoader->addResourceType('plugin', 'plugins/', 'Plugin');
 	}
 	
 	protected function _initRouter()
@@ -146,8 +139,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 			unset($config['params']['cache']);
 		}
 		
+		include_once 'system/Twig.php';
+		
 		$viewRender = new Zend_Controller_Action_Helper_ViewRenderer();
-		$viewRender->setView(new tools_Twig($config));
+		$viewRender->setView(new system_Twig($config));
 		$viewRender->setViewSuffix('twig');
 		Zend_Controller_Action_HelperBroker::addHelper($viewRender);
 	}

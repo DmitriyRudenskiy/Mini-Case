@@ -22,7 +22,7 @@ class Form_Page extends Form_Base
 		$this->addElement($element);
 		
 		$element = new Zend_Form_Element_Checkbox('is_active');
-		$element->setLabel('123')
+		$element->setLabel('Показывать')
         ->setValue('1');		
 		$this->addElement($element);
 

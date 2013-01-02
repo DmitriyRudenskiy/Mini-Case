@@ -11,6 +11,7 @@ define('DEBUG', 1);
 set_include_path(
 	get_include_path()
 	. PATH_SEPARATOR . APPLICATION_PATH . '/../_library/'
+	. PATH_SEPARATOR . APPLICATION_PATH
 	. PATH_SEPARATOR . BASE_PATH
 );
 

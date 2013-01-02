@@ -88,16 +88,8 @@ abstract class Form_Base extends Zend_Form
 			switch ($element->getType()) {
 			case 'Zend_Form_Element_Submit': 
 				$cssClass = $element->getAttrib('class');
-
-				if ($cssClass === null) {
-					$element->setAttrib('class', 'btn btn-primary');
-				} else {
-					$element
-							->setAttrib('class', ' btn btn-primary' . $cssClass);
-				}
-
-				$element
-						->setDecorators(
+				$element->setAttrib('class', 'btn btn-primary offset7');
+				$element->setDecorators(
 								array("ViewHelper",
 										array("Errors",
 												array("placement" => "append")),
@@ -108,7 +100,7 @@ abstract class Form_Base extends Zend_Form
 												array(
 														"innerwrapper" => "HtmlTag"),
 												array("tag" => "div",
-														"class" => "controls"))));
+														"class" => "form-actions"))));
 				break;
 
 			default:

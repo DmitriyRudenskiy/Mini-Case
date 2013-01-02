@@ -1,1 +1,11 @@
-{% include 'page/add.twig' %}
+{% set title = 'Редактировать страницу' %}
+
+{% include '_header.twig' %}
+
+<div class="form-actions">
+  <button type="submit" class="btn btn-primary offset9">Save changes</button>
+</div>
+
+{{ form }}
+
+{% include '_footer.twig' %}

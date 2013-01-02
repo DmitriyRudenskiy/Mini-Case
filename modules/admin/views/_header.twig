@@ -26,13 +26,14 @@
 			<h2>{{ title }}</h2>
 				<ul class="breadcrumb">
 			    <li>
-			    <a href="#">Home</a> <span class="divider">/</span>
+			    <a href="{{ base_url }}">Главная</a> 
+			    
+			    {% if action != 'index' %}
+			    	<span class="divider">/</span>
 			    </li>
 			    <li>
-			    <a href="#">Library</a> <span class="divider">/</span>
-			    </li>
-			    <li class="active">
-			    <a href="#">Data</a>
+			    	<a href="{{ base_url }}{{ controller }}">Список</a>
+			    {% endif %}
 			    </li>
 			    </ul>
 		</div>

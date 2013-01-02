@@ -28,9 +28,9 @@ return array(
 
 	'database' => array(
 		'host'     => 'localhost',
-		'username' => 'user',
-		'password' => 'password',
-		'dbname'   => 'name',
+		'username' => 'iotaru',
+		'password' => 'hnXIJO6DG',
+		'dbname'   => 'iotaru',
 		'charset'  => 'UTF8'
 	),
 	

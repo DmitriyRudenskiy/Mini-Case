@@ -1,10 +1,11 @@
 <?php
 
 /**
- * @author		go_first
- * @copyright	Copyright (c) 2011 Quality Case (http://www.qualitycase.ru/)
- * @package		miniCase
- * @version		0.91
+ * Controller
+ *
+ * @package		minicase
+ * @author		Dmitry Rudensky <dmitrij.rudenskij@gmail.com>
+ * @version		1.0
  */
 
 class ErrorController extends Zend_Controller_Action
@@ -12,9 +13,7 @@ class ErrorController extends Zend_Controller_Action
 	public function errorAction()
 	{
 		$errors = $this->_getParam('error_handler');
-		
-		//var_dump($errors);
-		
+
 		switch ($errors->type) {
 			case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_CONTROLLER:
 			case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_ACTION:

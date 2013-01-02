@@ -73,7 +73,9 @@ class ImageController extends Controller_Base
 			
 			if ($upload->receive()) {
 			    $source = $upload->getFileName();
-			    $image = new tools_Image($source);
+			    
+			    include_once 'system/Image.php';
+			    $image = new system_Image($source);
 			    
 			    //if (file_exists($source) && $image->isImage()) {
 			    if (file_exists($source)) {
