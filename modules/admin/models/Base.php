@@ -12,7 +12,7 @@ abstract class Model_Base extends Zend_Db_Table_Abstract
 	/**
 	 * Добавляем префикс к названию таблиц
 	 */
-	public function init()
+	protected function _setupTableName()
 	{
 		$this->_name = PREFIX . $this->_name;
 	}

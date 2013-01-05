@@ -1,4 +1,5 @@
 .settings/
 config/config.php
+.buildpath
 .project
 README.md
